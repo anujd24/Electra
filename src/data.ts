@@ -113,3 +113,39 @@ export const featuredProducts: Products = [
         ]
     }
 ]
+
+type Menu = {
+    id:number,
+    slug:string,
+    title:string,
+    desc?:string,
+    img?:string,
+    color:string
+}[];
+
+export const menu: Menu = [
+    {
+        id:1,
+        slug: "Laptops",
+        title:"Dell Inspiron 15",
+        desc:"start your coding career with Dell Inspiron 15!",
+        img:"/menuLappy.jpg",
+        color:"grey"
+    },
+    {
+        id:2,
+        slug: "Television",
+        title:"Home Theatre",
+        desc:"Watch your fav shows like in the theatres!",
+        img:"/menuTv.jpg",
+        color:"Black"
+    },
+    {
+        id:3,
+        slug: "Phone",
+        title:"Vivo Y15s",
+        desc:"Be yourself with Vivo Y15s",
+        img:"/menuPhone.jpg",
+        color:"Blue"
+    },
+]    
