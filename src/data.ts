@@ -79,11 +79,11 @@ export const featuredProducts: Products = [
         ]
     },
     {
-        id:1,
-        title: "air fryer",
-        desc: "Fry your soggy foods to get original taste!",
-        img:"/airf.jpg",
-        price: 2500,
+        id:5,
+        title: "Laptop cooling pad",
+        desc: "Cool down your device!",
+        img:"/coolingPad.jpg",
+        price: 3700,
         options: [
             {
                 title:"black",
@@ -96,7 +96,7 @@ export const featuredProducts: Products = [
         ]
     },
     {
-        id:1,
+        id:6,
         title: "air fryer",
         desc: "Fry your soggy foods to get original taste!",
         img:"/airf.jpg",
