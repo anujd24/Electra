@@ -46,10 +46,10 @@ export const featuredProducts: Products = [
     },
     {
         id:3,
-        title: "",
-        desc: "Fry your soggy foods to get original taste!",
-        img:"/airf.jpg",
-        price: 2500,
+        title: "Mouse",
+        desc: "Smoother experience on your computer!",
+        img:"/mouse.jpeg",
+        price: 800,
         options: [
             {
                 title:"black",
