@@ -97,10 +97,10 @@ export const featuredProducts: Products = [
     },
     {
         id:6,
-        title: "air fryer",
-        desc: "Fry your soggy foods to get original taste!",
-        img:"/airf.jpg",
-        price: 2500,
+        title: "Air Conditioner",
+        desc: "Just Chill!",
+        img:"/airCond.jpg",
+        price: 35000,
         options: [
             {
                 title:"black",
