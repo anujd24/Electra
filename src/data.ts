@@ -28,10 +28,10 @@ export const featuredProducts: Products = [
         ]
     },
     {
-        id:1,
+        id:2,
         title: "Headphones",
         desc: "Fry your soggy foods to get original taste!",
-        img:"/airf.jpg",
+        img:"/headphones.jpeg",
         price: 2500,
         options: [
             {
