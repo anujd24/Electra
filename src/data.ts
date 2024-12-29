@@ -30,9 +30,9 @@ export const featuredProducts: Products = [
     {
         id:2,
         title: "Headphones",
-        desc: "Fry your soggy foods to get original taste!",
+        desc: "Listen out your fav songs passionately!",
         img:"/headphones.jpeg",
-        price: 2500,
+        price: 1500,
         options: [
             {
                 title:"black",
@@ -45,8 +45,8 @@ export const featuredProducts: Products = [
         ]
     },
     {
-        id:1,
-        title: "air fryer",
+        id:3,
+        title: "",
         desc: "Fry your soggy foods to get original taste!",
         img:"/airf.jpg",
         price: 2500,
