@@ -62,11 +62,11 @@ export const featuredProducts: Products = [
         ]
     },
     {
-        id:1,
-        title: "air fryer",
-        desc: "Fry your soggy foods to get original taste!",
-        img:"/airf.jpg",
-        price: 2500,
+        id:4,
+        title: "Microwave",
+        desc: "Hot, Hot and Hotter!",
+        img:"/microwave.jpeg",
+        price: 5000,
         options: [
             {
                 title:"black",
