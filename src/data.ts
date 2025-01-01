@@ -219,6 +219,23 @@ export const laptops: Products = [
     }
 ]
 
+export const singleProduct: Product = 
+    {
+      id: 1,
+      title: "Dell Inspiron",
+      desc: "Dell Inspiron 15 3535 Laptop 15.6 inch FHD (39.62cm) Display, AMD Ryzen 3 7320U Processor, 8 GB RAM, 512 GB SSD, Carbon Black, 1.67 Kg, Lightweight and Portable",
+      img: "/dellInsp.jpg",
+      price: 43000,
+      options: [
+        { title: "Gray", additionalPrice: 0 },
+        { title: "Black", additionalPrice: 0 },
+      ],
+    };
+  
+  
+    
+  
+
 type Menu = {
     id:number,
     slug:string,
