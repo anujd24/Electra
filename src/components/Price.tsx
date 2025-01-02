@@ -20,11 +20,11 @@ const Price = ({price,id,options}: Props) =>{
   }, [quantity, selected, options, price]);
 
   return(
-    <div>
-      <h2>${total.toFixed(2)}</h2>
-      <div>
+    <div className='flex flex-col gap-4'>
+      <h2 className='text-2xl font-bold'>₹{total.toFixed(2)}</h2>
+      <div className='flex gap-4'>
         {options?.map((option, index) =>(
-          <button key={option.title} className='' style={{
+          <button key={option.title} className='min-w-[6rem] p-2 ring-1 ring-gray-500 rounded-md' style={{
             background: selected===index ? "rgb(92,92,92)" : "white",
             color : selected===index ? "white": "gray",
           }}
