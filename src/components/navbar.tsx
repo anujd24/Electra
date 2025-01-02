@@ -17,7 +17,7 @@ const Navbar = () => {
             <Link href="/">Contact</Link>
         </div>
 
-        <div className='text-gray-600 text-xl md:font-bold flex-1 md:text-center'>
+        <div className='text-gray-600 font-bold text-xl md:font-bold flex-1 md:text-center'>
             <Link href="/">
             Electra
             </Link>
