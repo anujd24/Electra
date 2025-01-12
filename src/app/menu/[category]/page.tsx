@@ -3,6 +3,8 @@ import { laptops } from '@/data'
 import Image from 'next/image'
 import Link from 'next/link'
 
+
+
 const category = () => {
   return (
     <div className='flex flex-wrap text-gray-600'>
