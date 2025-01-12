@@ -4,13 +4,19 @@ import React from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { signIn, useSession } from 'next-auth/react'
+import { useRouter } from 'next/router'
 
 const login = () => {
 
-  const { data, status } = useSession();
+  const { status } = useSession();
+  const router = useRouter();
 
-  console.log("data: " + data);
-  console.log("status: " + status);
+  if (status === "loading") {
+    return <p>Loading...</p>;
+  }
+  if (status === "authenticated") {
+    router.push("/")
+  }
   
 
   return (
