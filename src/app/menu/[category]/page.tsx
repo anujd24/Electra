@@ -3,9 +3,27 @@ import { laptops } from '@/data'
 import Image from 'next/image'
 import Link from 'next/link'
 
+const getData = async (category:string)=>{
+  const res = await fetch(`http://localhost:3000/api/products?cat=${category}`,{
+    cache:"no-store"
+  })
 
+  if(!res.ok){
+    throw new Error("Failed!");
+    
+  }
 
-const category = () => {
+  return res.json()
+}
+
+type Props = {
+  params:{category:string}
+}
+
+const category =  async ({params}:Props) => {
+
+  
+
   return (
     <div className='flex flex-wrap text-gray-600'>
       {laptops.map((item) => (
