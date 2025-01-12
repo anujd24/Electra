@@ -3,6 +3,7 @@ import Menu from './menu'
 import Link from 'next/link'
 import Image from 'next/image'
 import CartIcon from './cartIcon'
+import UserLinks from './UserLinks'
 
 const Navbar = () => {
 
@@ -34,7 +35,7 @@ const Navbar = () => {
                 <span>9998887774</span>    
             </div>
 
-            
+            <UserLinks/>
             <CartIcon/>
         </div>
     </div>
