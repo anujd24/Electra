@@ -2,6 +2,8 @@ import React from 'react'
 import Image from 'next/image'
 import { featuredProducts } from '@/data'
 
+
+
 const Featured = () => {
   return (
     <div className='w-screen overflow-x-scroll text-gray-600'>
