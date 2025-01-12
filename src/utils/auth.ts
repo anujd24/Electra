@@ -1,4 +1,4 @@
-import { NextAuthOptions } from "next-auth";
+import { getServerSession, NextAuthOptions } from "next-auth";
 import GoogleProvider from "next-auth/providers/google"
 
 export const authOptions:NextAuthOptions = {
@@ -8,4 +8,6 @@ export const authOptions:NextAuthOptions = {
             clientSecret: process.env.GOOGLE_SECRET!,
         }),
     ],
-}
+};
+
+export const getAuthSession = () => getServerSession(authOptions);
