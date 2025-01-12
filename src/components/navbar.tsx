@@ -34,11 +34,7 @@ const Navbar = () => {
                 <span>9998887774</span>    
             </div>
 
-            {!user ? (
-                <Link href="/login">Login</Link>
-            ):(
-                <Link href="/orders">Orders</Link>
-            )}
+            
             <CartIcon/>
         </div>
     </div>
