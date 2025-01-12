@@ -1,7 +1,8 @@
 import React from 'react'
-import { laptops } from '@/data'
+// import { laptops } from '@/data'
 import Image from 'next/image'
 import Link from 'next/link'
+import { ProductType } from '@/types/types'
 
 const getData = async (category:string)=>{
   const res = await fetch(`http://localhost:3000/api/products?cat=${category}`,{
@@ -22,11 +23,11 @@ type Props = {
 
 const category =  async ({params}:Props) => {
 
-  
+  const products:ProductType[] = await getData(params.category)
 
   return (
     <div className='flex flex-wrap text-gray-600'>
-      {laptops.map((item) => (
+      {products.map((item) => (
         <Link className='w-full h-[60vh] border-r-2 border-b-2 border-gray-600 sm:w-1/2 lg:w-1/3 p-4 flex flex-col justify-between group odd:bg-fuchsia-50' href={`/product/${item.id}`} key={item.id}>
           {item.img && (
             <div className='relative h-[80%]'>
