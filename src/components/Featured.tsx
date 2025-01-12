@@ -1,6 +1,7 @@
 import React from 'react'
 import Image from 'next/image'
-import { featuredProducts } from '@/data'
+import { ProductType } from '@/types/types';
+
 
 const getData = async ()=>{
     const res = await fetch("http://localhost:3000/api/products",{
@@ -14,7 +15,10 @@ const getData = async ()=>{
     return res.json()
   }
 
-const Featured = () => {
+const Featured = async () => {
+
+    const featuredProducts:ProductType[] = await getData()
+
   return (
     <div className='w-screen overflow-x-scroll text-gray-600'>
         <div className='w-max flex'>

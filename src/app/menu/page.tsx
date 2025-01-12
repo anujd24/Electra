@@ -1,6 +1,7 @@
 import Link from "next/link";
 import React from "react";
 import { menu } from "@/data";
+import { MenuType } from "@/types/types";
 
 const getData = async() =>{
     const res = await fetch("http://localhost:3000/api/categories",{
