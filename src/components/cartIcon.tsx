@@ -20,13 +20,25 @@ const CartIcon = () => {
   },[])
 
   return (
-    <Link href="/cart" className='flex items-center gap-4'>
-        <div className='relative w-8 h-8 md:w-5 md:h-5'>
-            <Image src="/cart.png" alt='' fill></Image>
+    <Link href={session?.user.isAdmin ? "/add" : "/cart"}>
+      <div className="flex items-center gap-4">
+        <div className="relative w-8 h-8 md:w-5 md:h-5">
+          <Image
+            src="/cart.png"
+            alt=""
+            fill
+            sizes="100%"
+            className="object-contain"
+          />
         </div>
-        <span>Cart (4)</span>
+        {session?.user.isAdmin ? (
+          <button className="p-1 bg-gray-500 text-white rounded-md">Add product</button>
+        ) : (
+          <span>Cart ({totalItems})</span>
+        )}
+      </div>
     </Link>
-  )
-}
+  );
+};
 
-export default CartIcon
+export default CartIcon;
