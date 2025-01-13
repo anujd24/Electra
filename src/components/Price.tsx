@@ -69,7 +69,8 @@ const Price = ({ product }: { product: ProductType }) => {
             </button>
           </div>
         </div>
-        <button className='uppercase w-56 bg-gray-600 text-white p-3 ring-1 ring-gray-600'>
+        <button className='uppercase w-56 bg-gray-600 text-white p-3 ring-1 ring-gray-600'
+        onClick={handleCart}>
           Add to Cart
         </button>
       </div>
