@@ -7,7 +7,17 @@ import Image from 'next/image'
 
 const CartIcon = () => {
 
-  
+  const { data: session, status } = useSession();
+
+  const { totalItems } = useCartStore();
+
+  useEffect(() => {
+    useCartStore.persist.rehydrate();
+  }, []);
+
+  useEffect(()=>{
+    useCartStore.persist.rehydrate()
+  },[])
 
   return (
     <Link href="/cart" className='flex items-center gap-4'>
