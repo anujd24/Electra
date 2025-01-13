@@ -41,19 +41,22 @@ const Price = ({ product }: { product: ProductType }) => {
   return(
     <div className='flex flex-col gap-4'>
       <h2 className='text-2xl font-bold'>₹{total}</h2>
-      {/* <div className='flex gap-4'>
-        {options?.map((option, index) =>(
-          <button key={option.title} className='min-w-[6rem] p-2 ring-1 ring-gray-500 rounded-md' style={{
-            background: selected===index ? "rgb(92,92,92)" : "white",
-            color : selected===index ? "white": "gray",
-          }}
-          onClick={() => setSelected(index)}
-          >
-            {option.title}
-          </button>
-        ))}
-      </div> */}
-
+      <div className="flex gap-4">
+        {product.options?.length &&
+          product.options?.map((option, index) => (
+            <button
+              key={option.title}
+              className="min-w-[6rem] p-2 ring-1 ring-gray-500 rounded-md"
+              style={{
+                background: selected === index ? "rgb(92,92,92)" : "white",
+                color: selected === index ? "white" : "gray",
+              }}
+              onClick={() => setSelected(index)}
+            >
+              {option.title}
+            </button>
+          ))}
+      </div>
       <div className='flex justify-between items-center'>
         <div className='flex justify-between w-full p-3 ring-1 ring-gray-600'>
           <span>Quantity</span>
