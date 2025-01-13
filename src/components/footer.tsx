@@ -7,7 +7,7 @@ const Footer = () => {
         <Link href="/" className='font-bold text-xl'>ELECTRA</Link>
         <p>® ALL RIGHTS RESERVED.</p>
     </div>
-  )
-}
+  );
+};
 
-export default Footer
+export default Footer;
