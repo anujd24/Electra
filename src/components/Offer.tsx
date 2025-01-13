@@ -19,9 +19,7 @@ const Offer = () =>{
         <Image src="/offerProd.jpg" alt='' fill className='object-contain'></Image>
       </div>
     </div>
-  )
-}
+  );
+};
   
-
-
-export default Offer
+export default Offer;
