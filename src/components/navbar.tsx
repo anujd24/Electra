@@ -12,7 +12,7 @@ const Navbar = () => {
   return (
     <div className='h-12 text-gray-600 p-4 flex items-center justify-between border-b-2 border-b-gray-600 uppercase md:h-24
     lg:px-20 xl:px-40'>
-        <div className='hidden md:flex gap-4'>
+        <div className='hidden md:flex gap-4 flex-1'>
             <Link href="/">Homepage</Link>
             <Link href="/menu">Menu</Link>
             <Link href="/">Contact</Link>
