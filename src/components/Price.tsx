@@ -75,9 +75,7 @@ const Price = ({ product }: { product: ProductType }) => {
         </button>
       </div>
     </div>
-  )
-}
+  );
+};
 
-
-
-export default Price
+export default Price;
