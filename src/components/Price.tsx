@@ -1,28 +1,47 @@
-"use client"
+"use client";
 
-import React, { useState, useEffect } from 'react'
+import { ProductType } from "@/types/types";
+import  {useCartStore} from "@/utils/store";
+import React, { useEffect, useState } from "react";
+import { toast } from "react-toastify";
 
-type Props = {
-  price: number,
-  id: string,
-  options?: { title:string; additionalPrice:number}[];
-}
-
-const Price = ({price,id,options}: Props) =>{
-  const [total, setTotal] = useState(price);
+const Price = ({ product }: { product: ProductType }) => {
+  const [total, setTotal] = useState(product.price);
   const [quantity, setQuantity] = useState(1);
   const [selected, setSelected] = useState(0);
 
+  const { addToCart } = useCartStore();
+
+  useEffect(()=>{
+    useCartStore.persist.rehydrate()
+  },[])
+
   useEffect(() => {
-    setTotal(
-      quantity * (options ? price + options[selected].additionalPrice : price)
-    );
-  }, [quantity, selected, options, price]);
+    if (product.options?.length) {
+      setTotal(
+        quantity * product.price + product.options[selected].additionalPrice
+      );
+    }
+  }, [quantity, selected, product]);
+
+  const handleCart = ()=>{
+    addToCart({
+      id: product.id,
+      title: product.title,
+      img: product.img,
+      price: total,
+      ...(product.options?.length && {
+        optionTitle: product.options[selected].title,
+      }),
+      quantity: quantity,
+    })
+    toast.success("The product added to the cart!")
+  }
 
   return(
     <div className='flex flex-col gap-4'>
       <h2 className='text-2xl font-bold'>₹{total}</h2>
-      <div className='flex gap-4'>
+      {/* <div className='flex gap-4'>
         {options?.map((option, index) =>(
           <button key={option.title} className='min-w-[6rem] p-2 ring-1 ring-gray-500 rounded-md' style={{
             background: selected===index ? "rgb(92,92,92)" : "white",
@@ -33,7 +52,7 @@ const Price = ({price,id,options}: Props) =>{
             {option.title}
           </button>
         ))}
-      </div>
+      </div> */}
 
       <div className='flex justify-between items-center'>
         <div className='flex justify-between w-full p-3 ring-1 ring-gray-600'>
