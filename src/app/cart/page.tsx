@@ -16,6 +16,29 @@ const CartPage = () => {
     useCartStore.persist.rehydrate();
   }, []);
 
+  const handleCheckout = async () => {
+    if (!session) {
+      router.push("/login");
+    } else {
+      try {
+        const res = await fetch("http://localhost:3000/api/orders", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            price: totalPrice,
+            products,
+            status: "Not Paid!",
+            userEmail: session.user.email,
+          }),
+        });
+        const data =await res.json()
+        router.push(`/pay/${data.id}`)
+      } catch (err) {
+        console.log(err);
+      }
+    }
+  };
+
   return (
     <div className='h-calc[(100vh-6rem)] md:h-[calc(100vh-9rem)] flex flex-col text-gray-600 lg:flex-row'>
       {/* Products */}
