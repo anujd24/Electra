@@ -7,6 +7,11 @@ import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 
 const CartPage = () => {
+  
+  const { products, totalItems, totalPrice, removeFromCart } = useCartStore();
+  const { data: session } = useSession();
+  const router = useRouter();
+
   return (
     <div className='h-calc[(100vh-6rem)] md:h-[calc(100vh-9rem)] flex flex-col text-gray-600 lg:flex-row'>
       {/* Products */}
