@@ -16,9 +16,12 @@ export async function POST(
   });
 
   if (order) {
+
+    const priceInRupees = order.price.toNumber() * 100;
+
     const paymentIntent = await stripe.paymentIntents.create({
-    //   amount: order.price * 100,
-      currency: "usd",
+      amount: priceInRupees,
+      currency: "rupees",
       automatic_payment_methods: {
         enabled: true,
       },
