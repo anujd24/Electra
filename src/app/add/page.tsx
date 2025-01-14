@@ -3,7 +3,7 @@
 import { useSession } from "next-auth/react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 type Inputs = {
   title: string;
@@ -36,25 +36,30 @@ const AddPage = () => {
 
   const router = useRouter();
 
+  useEffect(() => {
+    if (status === "unauthenticated" || !session?.user.isAdmin) {
+      router.push("/");
+    }
+  }, [status, session, router]); // Dependency array ensures this runs only when relevant values change.
+
   if (status === "loading") {
     return <p>Loading...</p>;
-  }
-
-  if (status === "unauthenticated" || !session?.user.isAdmin) {
-    router.push("/");
   }
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
-    setInputs((prev) => {
-      return { ...prev, [e.target.name]: e.target.value };
-    });
+    setInputs((prev) => ({
+      ...prev,
+      [e.target.name]: e.target.value,
+    }));
   };
+
   const changeOption = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setOption((prev) => {
-      return { ...prev, [e.target.name]: e.target.value };
-    });
+    setOption((prev) => ({
+      ...prev,
+      [e.target.name]: e.target.value,
+    }));
   };
 
   const handleChangeImg = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -70,7 +75,6 @@ const AddPage = () => {
 
     const res = await fetch("https://api.cloudinary.com/v1_1/dpjtpiknb/image", {
       method: "POST",
-      headers: { "Content-Type": "multipart/form-data" },
       body: data,
     });
 
@@ -96,7 +100,7 @@ const AddPage = () => {
 
       router.push(`/product/${data.id}`);
     } catch (err) {
-      console.log(err);
+      console.error(err);
     }
   };
 
@@ -106,12 +110,12 @@ const AddPage = () => {
         <h1 className="text-4xl mb-2 text-gray-300 font-bold">
           Add New Product
         </h1>
-        <div className="w-full flex flex-col gap-2 ">
+        <div className="w-full flex flex-col gap-2">
           <label
             className="text-sm cursor-pointer flex gap-4 items-center"
             htmlFor="file"
           >
-            <Image src="/upload.png" alt="" width={30} height={20} />
+            <Image src="/upload.png" alt="Upload" width={30} height={20} />
             <span>Upload Image</span>
           </label>
           <input
@@ -121,7 +125,7 @@ const AddPage = () => {
             className="hidden"
           />
         </div>
-        <div className="w-full flex flex-col gap-2 ">
+        <div className="w-full flex flex-col gap-2">
           <label className="text-sm">Title</label>
           <input
             className="ring-1 ring-red-200 p-4 rounded-sm placeholder:text-red-200 outline-none"
@@ -136,12 +140,12 @@ const AddPage = () => {
           <textarea
             rows={3}
             className="ring-1 ring-red-200 p-4 rounded-sm placeholder:text-red-200 outline-none"
-            placeholder="A timeless favorite with a twist, showcasing a thin crust topped with sweet tomatoes, fresh basil and creamy mozzarella."
+            placeholder="A timeless favorite with a twist, showcasing a thin crust topped with sweet tomatoes, fresh basil, and creamy mozzarella."
             name="desc"
             onChange={handleChange}
           />
         </div>
-        <div className="w-full flex flex-col gap-2 ">
+        <div className="w-full flex flex-col gap-2">
           <label className="text-sm">Price</label>
           <input
             className="ring-1 ring-red-200 p-4 rounded-sm placeholder:text-red-200 outline-none"
@@ -151,7 +155,7 @@ const AddPage = () => {
             onChange={handleChange}
           />
         </div>
-        <div className="w-full flex flex-col gap-2 ">
+        <div className="w-full flex flex-col gap-2">
           <label className="text-sm">Category</label>
           <input
             className="ring-1 ring-red-200 p-4 rounded-sm placeholder:text-red-200 outline-none"
@@ -179,6 +183,7 @@ const AddPage = () => {
               onChange={changeOption}
             />
             <button
+              type="button"
               className="bg-gray-500 p-2 text-white"
               onClick={() => setOptions((prev) => [...prev, option])}
             >
@@ -189,7 +194,7 @@ const AddPage = () => {
             {options.map((opt) => (
               <div
                 key={opt.title}
-                className="p-2  rounded-md cursor-pointer bg-gray-200 text-gray-400"
+                className="p-2 rounded-md cursor-pointer bg-gray-200 text-gray-400"
                 onClick={() =>
                   setOptions((prev) =>
                     prev.filter((item) => item.title !== opt.title)
