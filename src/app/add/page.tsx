@@ -139,8 +139,8 @@ const AddPage = () => {
           <label className="text-sm">Description</label>
           <textarea
             rows={3}
-            className="ring-1 ring-red-200 p-4 rounded-sm placeholder:text-red-200 outline-none"
-            placeholder="A timeless favorite with a twist, showcasing a thin crust topped with sweet tomatoes, fresh basil, and creamy mozzarella."
+            className="ring-1 ring-gray-200 p-4 rounded-sm placeholder:text-gray-200 outline-none"
+            placeholder="A New Gen Device to fullfil your techy needs."
             name="desc"
             onChange={handleChange}
           />
@@ -148,7 +148,7 @@ const AddPage = () => {
         <div className="w-full flex flex-col gap-2">
           <label className="text-sm">Price</label>
           <input
-            className="ring-1 ring-red-200 p-4 rounded-sm placeholder:text-red-200 outline-none"
+            className="ring-1 ring-gray-200 p-4 rounded-sm placeholder:text-gray-200 outline-none"
             type="number"
             placeholder="29"
             name="price"
