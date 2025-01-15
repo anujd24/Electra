@@ -128,7 +128,7 @@ const AddPage = () => {
         <div className="w-full flex flex-col gap-2">
           <label className="text-sm">Title</label>
           <input
-            className="ring-1 ring-red-200 p-4 rounded-sm placeholder:text-red-200 outline-none"
+            className="ring-1 ring-gray-200 p-4 rounded-sm placeholder:text-gray-200 outline-none"
             type="text"
             placeholder="Bella Napoli"
             name="title"
