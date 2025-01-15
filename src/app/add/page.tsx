@@ -176,7 +176,7 @@ const AddPage = () => {
               onChange={changeOption}
             />
             <input
-              className="ring-1 ring-red-200 p-4 rounded-sm placeholder:text-red-200 outline-none"
+              className="ring-1 ring-gray-200 p-4 rounded-sm placeholder:text-gray-200 outline-none"
               type="number"
               placeholder="Additional Price"
               name="additionalPrice"
