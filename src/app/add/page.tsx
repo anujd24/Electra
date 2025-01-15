@@ -209,7 +209,7 @@ const AddPage = () => {
         </div>
         <button
           type="submit"
-          className="bg-red-500 p-4 text-white w-48 rounded-md relative h-14 flex items-center justify-center"
+          className="bg-gray-600 p-4 text-white w-48 rounded-md relative h-14 flex items-center justify-center"
         >
           Submit
         </button>
