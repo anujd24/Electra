@@ -160,7 +160,7 @@ const AddPage = () => {
           <input
             className="ring-1 ring-gray-200 p-4 rounded-sm placeholder:text-gray-200 outline-none"
             type="text"
-            placeholder="pizzas"
+            placeholder="laptops"
             name="catSlug"
             onChange={handleChange}
           />
@@ -169,7 +169,7 @@ const AddPage = () => {
           <label className="text-sm">Options</label>
           <div className="flex">
             <input
-              className="ring-1 ring-red-200 p-4 rounded-sm placeholder:text-red-200 outline-none"
+              className="ring-1 ring-gray-200 p-4 rounded-sm placeholder:text-gray-200 outline-none"
               type="text"
               placeholder="Title"
               name="title"
