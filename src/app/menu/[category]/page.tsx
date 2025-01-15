@@ -1,5 +1,4 @@
 import React from 'react'
-// import { laptops } from '@/data'
 import Image from 'next/image'
 import Link from 'next/link'
 import { ProductType } from '@/types/types'
